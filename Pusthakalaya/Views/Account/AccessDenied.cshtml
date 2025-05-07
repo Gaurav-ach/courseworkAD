@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Access Denied";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <style>
+        /* === shared interactive theme (inline) ========================= */
+
+        /* shifting gradient background */
+        body.access-denied-bg {
+            background: linear-gradient(135deg,#746cf5,#f53181);
+            background-size: 200% 200%;
+            animation: gradientShift 11s ease-in-out infinite alternate;
+        }
+        @keyframes gradientShift {
+            from
+
+        {
+            background-position: 0% 50%;
+        }
+
+        to {
+            background-position: 100% 50%;
+        }
+
+        }
+
+        /* card drop‑in animation */
+        .animated-card {
+            transform: translateY(30px) scale(.94);
+            opacity: 0;
+            animation: cardIn .8s cubic-bezier(.25,1.5,.5,1) forwards;
+        }
+        @keyframes cardIn {
+            to
+
+        {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        }
+
+        /* lively button */
+        .btn-glow {
+            transition: transform .15s, background .3s, box-shadow .15s;
+            box-shadow: 0 6px 18px rgba(0,0,0,.14);
+        }
+
+            .btn-glow:hover {
+                transform: translateY(-3px);
+            }
+
+            .btn-glow:active {
+                transform: translateY( 0);
+            }
+
+            .btn-glow:focus {
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(245,49,129,.35);
+            }
+
+            .btn-glow:hover {
+                background: linear-gradient(135deg,#f53181,#ffb547);
+            }
+    </style>
+}
+
+<!-- add the body class through a section so the layout can append it -->
+@section BodyClass {
+ access‑denied‑bg
+}
+
+<div class="container mx-auto px-4 py-6">
+    <h2 class="text-2xl font-bold text-center text-amber-900 mb-6">Access Denied</h2>
+
+    <div class="bg-amber-50 rounded-lg shadow-md p-6 max-w-lg mx-auto text-center animated-card">
+        <p class="text-gray-600 text-sm mb-4">
+            You do not have permission to access this page. You need to be a registered member to place an order.
+        </p>
+        <p class="text-gray-600 text-sm mb-6">
+            If you are not a member, please register or log in with a member account.
+        </p>
+
+        <div class="flex justify-center gap-4">
+            <a asp-controller="Account" asp-action="Register"
+               class="inline-block bg-amber-600 text-white font-medium text-sm py-1.5 px-3 rounded hover:bg-amber-700 btn-glow">
+                Register
+            </a>
+            <a asp-controller="Account" asp-action="Login"
+               class="inline-block bg-gray-500 text-white font-medium text-sm py-1.5 px-3 rounded hover:bg-gray-600 btn-glow">
+                Login
+            </a>
+        </div>
+    </div>
+</div>

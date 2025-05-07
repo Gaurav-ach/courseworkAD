@@ -1,0 +1,48 @@
+﻿@model Pusthakalaya.Models.CreateStaffViewModel
+@{
+    ViewData["Title"] = "Create Staff";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{}
+    <style>
+        /* === interactive theme (inline) ================================= */
+
+        /* shifting gradient background */
+        body.create-staff-bg {
+            background: linear-gradient(135deg,#746cf5,#f53181);
+            background-size: 200% 200%;
+            animation: gradientShift 11s ease-in-out infinite alternate;
+        }
+        @keyframes gradientShift {
+            from { background-position: 0% 50%; }
+            to   { background-position: 100% 50%; }
+        }
+
+        /* card drop‑in */
+        .animated-card {
+            transform: translateY(30px) scale(.94);
+            opacity: 0;
+            animation: cardIn .8s cubic-bezier(.25,1.5,.5,1) forwards;
+        }
+        @keyframes cardIn {
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+
+        /* glowing focus ring on inputs */
+        .input-anim:focus {
+            outline: none;
+            border-color: #746cf5 !important;
+            box-shadow: 0 0 0 3px rgba(116,108,245,.30);
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        /* lively button */
+        .btn-glow {
+            transition: transform .15s, background .3s, box-shadow .15s;
+            box-shadow: 0 6px 18px rgba(0,0,0,.14);
+        }
+        .btn-glow:hover   { transform: translateY(-3px); }
+        .btn-glow:active  { transform: translateY( 0); }
+        .btn-glow:focus   { outline: none; box-shadow: 0 0 0 3px rgba(245,49,129,.35); }
+        .btn-glow:hover   { background: linear-gradient(135deg,#f531
